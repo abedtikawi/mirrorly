@@ -1,0 +1,24 @@
+{
+  "name": "mirrorly",
+  "version": "1.0.0",
+  "description": "This is a node js web server to host for mirrorly",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abedtikawi/mirrorly.git"
+  },
+  "author": "AbedTikkawi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abedtikawi/mirrorly/issues"
+  },
+  "homepage": "https://github.com/abedtikawi/mirrorly#readme"
+}
