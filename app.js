@@ -1,16 +1,15 @@
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const indexRouter= require('./routes/route');
 const port = 3000
+
 // Create Connection
 
 //Connect
 
-app.get('/', (req, res) =>{ 
-    res.send('Hello World!')
-
-});
-
+app.use('/api',indexRouter);
+app.use(express.json());
 app.listen(port, () => {
 
 
