@@ -4,6 +4,7 @@
   "description": "This is a node js web server to host for mirrorly",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",

@@ -12,16 +12,7 @@ const port = 3000
 
 app.use('/api',indexRouter);
 app.use(express.json());
-app.use('/',(req,res)=>{
-   
-        let whatever='abed\ntikkawi';
-        fs.writeFile('toPython.txt',whatever,(err)=>{
-            if(err)
-            throw err;
-            console.log('Mirrorly Server is Online')
-            console.log('Done writing to toPython.txt');
-        })
-});
+
 app.listen(port, () => {
 
 

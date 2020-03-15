@@ -1,26 +1,47 @@
-const fs=require('fs');
-const stream= fs.createWriteStream("myfile.txt");
+const fs = require('fs');
+const stream = fs.createWriteStream("myfile.txt");
 
 module.exports = async (req, res) => {
-    let iotID = req.parans.id;
-    let iotStatus = req.params.status;
+
     try {
+        let iotID = req.params.id;
+        let iotStatus = req.params.status;
 
 
 
 
-            stream.once('open',function (fd){
-                stream.write('My First Row\n')
-                stream.write('My second row\n')
-                stream.end();
+
+
+
+        let whatever = iotID + '\n' + iotStatus + '\n';
+        // fs.writeFile('toPython2.txt',whatever,(err)=>{
+        //     if(err)
+        //     throw err;
+        //     console.log('Mirrorly Server is Online')
+        //     console.log('Done writing '+whatever+' toPython.txt');
+        // })
+        let filename = "toPython3.txt"
+
+        function writeFile() {
+
+            fs.writeFile(filename, whatever, {
+                flag: "a"
+            }, function (err) {
+                if (err) {
+                    console.log("file" + filename + "already exists , testing next");
+
+                    writeFile();
+
+                } else {
+                    console.log("Successfully written " + filename);
+                }
             });
+        }
 
-
-
-
-            return res.status(200).json({
-                status:'success'
-            })
+        writeFile();
+        return res.status(200).json({
+            status: 'success'
+        })
 
 
 
