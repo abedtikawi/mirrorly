@@ -1,4 +1,6 @@
 const mysql = require('../../db/config.js');
+// const session=require('express-session');
+// const FileStore=require('session-file-store')(session);
 module.exports = async (req, res) => {
     try {
 
@@ -6,15 +8,16 @@ module.exports = async (req, res) => {
         const email = obj.email.toString();
         const password = obj.password.toString();
         console.log(obj);
+        // let fileStoreOptions={};
         const selectQuery = "SELECT users_password AS reply FROM mirrorly.users where users_email=?";
         mysql.query(selectQuery, [email], function (error, result, fields) {
             if (error) {
                 console.log('Error occured ,' + error);
             } else {
                 if (result.length > 0) {
-                    console.log(result[0].reply);
                     if (result[0].reply == password) {
                         console.log('Login successfull');
+                        //dont forget to implement session and save session id to pass it on with decay timer 
                     } else {
                         console.log('email and password do not match');
 
@@ -26,33 +29,11 @@ module.exports = async (req, res) => {
             }
 
 
-
-
-
-
-
-
         });
-
-
-
-
-
-
-
-
-
-
-
 
         return res.status(200).json({
             status: 'Success'
         });
-
-
-
-
-
 
 
     } catch (error) {
