@@ -4,10 +4,19 @@ const serveStatic = require('serve-static')
 const connect = require('connect');
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
 const indexRouter = require('./routes/route');
-const port = 5500;
+const mysql=require('./db/config.js');
+const port = 5501;
 app.use(express.json());
+//app.connect();
 // 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
+app.use(bodyParser.json());
 const
     spawn = require("child_process").spawn;
 
@@ -48,5 +57,5 @@ console.log(`Example app listening on port ${port}!`)
 
 // app.use('/api', indexRouter);
 // app.use(express.json());
-// connect().use(serveStatic(__dirname)).listen(8080, function () {
+//app.connect().use(serveStatic(__dirname)).listen($port, function () {console.log('listening to port 5501');})
 //             console.log('Server running on 8080...')});

@@ -3,8 +3,9 @@ const {
 } = require('express-validator');
 
 module.exports = [
-    //check('username').not().isEmpty(),
-    //check('password').not().isEmpty(),
-    //check('').not().isEmpty(),
-    //check('').not().isEmpty()
+    check('fname').not().isEmpty(),
+    check('lname').not().isEmpty(),
+    check('email').not().isEmpty(),
+    check('phoneNumber').not().isEmpty(),
+    check('password').not().isEmpty()
 ]
