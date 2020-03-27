@@ -2,13 +2,15 @@ const HashMap = require('hashmap');
 const myParser = require("body-parser");
 const sgMail = require('@sendgrid/mail');
 const mysql = require('../../db/config.js');
+const validateBody=require('../../utils/validateBody');
 
 module.exports = async (req, res) => {
 
-
-
+    
+    validateBody(req,res);
 
     try {
+        
         const obj = JSON.parse(JSON.stringify(req.body));
         const firstname = obj.fname.toString();
         const lastname = obj.lname.toString();

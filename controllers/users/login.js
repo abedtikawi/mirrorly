@@ -1,9 +1,10 @@
 const mysql = require('../../db/config.js');
 // const session=require('express-session');
 // const FileStore=require('session-file-store')(session);
+const validateBody=require('../../utils/validateBody');
 module.exports = async (req, res) => {
     try {
-
+        validateBody(req,res);
         const obj = JSON.parse(JSON.stringify(req.body));
         const email = obj.email.toString();
         const password = obj.password.toString();
