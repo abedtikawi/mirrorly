@@ -1,24 +1,30 @@
-const mysql = require('../../db/config.js');
+const pool = require('../../db/config.js');
 // const session=require('express-session');
 // const FileStore=require('session-file-store')(session);
-const validateBody=require('../../utils/validateBody');
+const validateBody = require('../../utils/validateBody');
 module.exports = async (req, res) => {
+    validateBody(req, res);
+    console.log(JSON.parse(JSON.stringify(req.body)));
+    const {
+        email,
+        password
+    } = req.body;
+    if (req.body.email == null || req.body.password==null) {
+        console.log('Attributes missing');
+        return res.status(422).json({
+            message: 'Attributes missing'
+        });
+    }
     try {
-        validateBody(req,res);
-        const obj = JSON.parse(JSON.stringify(req.body));
-        const email = obj.email.toString();
-        const password = obj.password.toString();
-        console.log(obj);
-        // let fileStoreOptions={};
+
         const selectQuery = "SELECT users_password AS reply FROM mirrorly.users where users_email=?";
-        mysql.query(selectQuery, [email], function (error, result, fields) {
+        pool.query(selectQuery, [req.body.email], function (error, result, fields) {
             if (error) {
                 console.log('Error occured ,' + error);
             } else {
                 if (result.length > 0) {
-                    if (result[0].reply == password) {
+                    if (result[0].reply == req.body.password) {
                         console.log('Login successfull');
-                        //dont forget to implement session and save session id to pass it on with decay timer 
                     } else {
                         console.log('email and password do not match');
 
