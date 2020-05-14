@@ -1,0 +1,21 @@
+implement google oauth , google id , google token on server side to create a date when the user registers a date through the phone 
+create a decent front end , modify the table to be in a place , on right side , display the values that are being read from the dates text file , values are already in the backend 
+use javascript on electron to modify css elements text should be colored on the html page .
+implement  the weather option , its already done just do the front end 
+implement  spotify backend / front end 
+
+ezza la77a2na alexa mna3mela ta3mol one simple job on electron  izzzza la7a2na 
+ 
+ design the mirror 
+1 Buy the fucking mirror , and dvi-hdmi converter 
+2 diassemble the tv and join shit together so we know what items we are missing
+3 buy an aluminium chassis to hold the shit together on the back of the mirror   
+ this will help alot when u will manipulate the css and html elements since ur designing with 0 knowledge keef hatetla3 shakla el mreye 
+4 Design the chasis for the motor or just 3d print it and test it 
+we need el black roll seprator yale ben el mirror and ben el tv
+
+w er display date and time dont forget that too
+
+
+
+ hash passwords compare hash to db hashed if (hashed)) login izzzzza dal wa2et mabhes menla77e2a 

@@ -1,4 +1,10 @@
-module.exports = (req, res) => {
+const ls=require('local-storage');
+
+
+
+
+
+module.exports = async (req, res) => {
     // const express = require('express');
     // const
     // spawn = require("child_process").spawn;
@@ -13,4 +19,21 @@ module.exports = (req, res) => {
     //     console.log("Python script running");
 
     //     res.end();
+
+    try {
+        console.log(ls);
+        console.log(ls.get('userID'));
+        return res.status(200).json({
+            status: 'success'
+        });
+
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({
+            status: 'error',
+            data: {
+                message: 'Internal Server Error'
+            }
+        });
+    }
 }
